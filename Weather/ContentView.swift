@@ -11,7 +11,7 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             // Making the background color a linear gradient and starting it from the top to the bottom. Also ignroing safe area so it fills up the entire screen.
-            LinearGradient(gradient: Gradient(colors: [.purple, .blue, .pink]),
+            LinearGradient(gradient: Gradient(colors: [.black, .blue, .white]),
                            startPoint: .top,
                            endPoint: .bottomTrailing)
                 // Ignoring safe area
@@ -27,14 +27,24 @@ struct ContentView: View {
                     .foregroundColor(.white)
                     .padding()
                 
+                VStack(spacing: 8) {
+                    Image(systemName: "cloud.sun.fill")
+                        .renderingMode(.original)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 180, height: 180)
+                        
+                    Text("76°")
+                        .font(.system(size: 70, weight: .medium))
+                        .foregroundColor(.white)
+                    
+
+                }
+               
                 Spacer()
                 
                 
-                
             }
-            
-            
-        
         }
     }
 }
