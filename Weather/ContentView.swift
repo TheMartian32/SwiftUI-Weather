@@ -45,6 +45,12 @@ struct ContentView: View {
                 
                 
             }
+            
+            // HStack for forecast relating to the days of the week.
+            HStack(alignment: .bottom) {
+                weatherView(weatherImage: "cloud.sun.fill", temperature: 59, dayOfWeek: "TUE")
+                
+            }
         }
     }
 }
@@ -52,5 +58,27 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+// Some sort of function? All I know is that it's reusable.
+struct weatherView: View {
+    
+    var weatherImage: String
+    var temperature: Int
+    var dayOfWeek: String
+    
+    var body: some View {
+        VStack{
+            Text(dayOfWeek)
+                .font(.system(size: 16, weight: .medium, design: .default))
+                .foregroundColor(.white)
+            Image(systemName: weatherImage)
+                .renderingMode(.original)
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 50, height: 50)
+            Text("\(temperature)°")
+                .font(.system(size: 40, weight: .regular))
+        }
     }
 }
